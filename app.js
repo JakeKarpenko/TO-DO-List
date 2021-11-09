@@ -6,7 +6,6 @@ const app = express();
 app.use(express.static('public'))
 
 let item = "";
-let workItems = [];
 let items = ["By food", "Cook Food", "Eat Food"];
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -32,7 +31,6 @@ app.post('/', function(req, res){
 
       item = req.body.newItem;
     
-
       if(req.body.list == "Work"){
           workItems.push(item);
           res.redirect('/work')
@@ -40,12 +38,8 @@ app.post('/', function(req, res){
         items.push(item)
         res.redirect('/')
       }
-
-     
-    
    
 })
-
 
 app.listen(port, function(){
     console.log('Server is starting..');
